@@ -1,6 +1,7 @@
 import { BottomBarItemBase, Notification } from "../common";
 import { BottomBar } from "./bottombar";
 import { Color } from "tns-core-modules/color/color";
+import {BottomBarBase} from "../bottombar";
 
 declare const com;
 let AHNotification = com.aurelhubert.ahbottomnavigation.notification.AHNotification;
@@ -63,6 +64,10 @@ export class BottomBarItem extends BottomBarItemBase {
 
     public get notification(): Notification {
         return super.getNotification();
+    }
+
+    public get parent(): WeakRef<BottomBar> {
+        return <WeakRef<BottomBar>>super.getParent();
     }
 
     public set parent(parent: WeakRef<BottomBar>) {
